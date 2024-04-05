@@ -1,10 +1,5 @@
 import java.util.*;
 
-/*
-    student name : Alexandre Casaroes
-    student ID   : 74685
-    student email: 74685@student.dorset-college.ie
-*/
 
 public class Main {
     public static boolean is_blood_type_exist(String bloodType){
