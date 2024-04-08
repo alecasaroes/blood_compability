@@ -2,8 +2,8 @@ import java.util.*;
 
 public class Main {
     public static boolean is_blood_type_exist(String bloodType){
-        String list_of_blood_types[] = {"A+", "O+", "B+", "AB+", "A-", "O-", "B-", "AB-"};
-        int iterator = 0, i = 0;
+        String []list_of_blood_types = {"A+", "O+", "B+", "AB+", "A-", "O-", "B-", "AB-"};
+        int iterator = 0, i;
         while (iterator < list_of_blood_types.length){
             i = bloodType.compareTo(list_of_blood_types[iterator]);
             if (i == 0)
@@ -17,22 +17,20 @@ public class Main {
 
         Scanner keyboard_input = new Scanner(System.in);
         String blood_type;
-        boolean avaiable_blood_type = false;
+        boolean available_blood_type = false, correct_choice = false;
+        int choice;
 
         do {
             System.out.print("Inform your blood type: ");
             blood_type = keyboard_input.nextLine().toUpperCase();
 
             if (is_blood_type_exist(blood_type))
-                avaiable_blood_type = true;
+                available_blood_type = true;
 
-            if(!avaiable_blood_type)
+            if(!available_blood_type)
                 System.out.format("Blood type %s doesn't exist, please type again.%n", blood_type);
 
-        } while (!avaiable_blood_type);
-
-        int choice = 0;
-        boolean correct_choice = false;
+        } while (!available_blood_type);
 
         do {
             System.out.print("Do you want to know about giving or receiving (1 for Gives, 2 for Receives): ");
@@ -41,7 +39,7 @@ public class Main {
             if (choice == 1 || choice == 2)
                 correct_choice = true;
 
-            if (correct_choice == false)
+            if (!correct_choice)
                 System.out.println("Choice doesn't exist, please try again: ");
 
         } while (!correct_choice);
