@@ -17,7 +17,7 @@ public class Main {
 
         Scanner keyboard_input = new Scanner(System.in);
         String blood_type;
-        boolean available_blood_type = false, correct_choice = false;
+        boolean correct_blood_type = false, correct_choice = false;
         int choice;
 
         do {
@@ -25,12 +25,12 @@ public class Main {
             blood_type = keyboard_input.nextLine().toUpperCase();
 
             if (is_blood_type_exist(blood_type))
-                available_blood_type = true;
+                correct_blood_type = true;
 
-            if(!available_blood_type)
+            if(!correct_blood_type)
                 System.out.format("Blood type %s doesn't exist, please type again.%n", blood_type);
 
-        } while (!available_blood_type);
+        } while (!correct_blood_type);
 
         do {
             System.out.print("Do you want to know about giving or receiving (1 for Gives, 2 for Receives): ");
